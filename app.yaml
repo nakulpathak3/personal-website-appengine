@@ -12,6 +12,12 @@ handlers:
 - url: /details
   script: index.app
 
+- url: /blog/(\d+)
+  script: blog.app
+
+- url: /newpost
+  script: blog.app
+
 - url: /stylesheets
   static_dir: stylesheets
 
