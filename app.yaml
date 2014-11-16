@@ -1,0 +1,29 @@
+application: nakul-pathak
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /
+  script: index.app
+
+- url: /details
+  script: index.app
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /js
+  static_dir: js
+
+- url: /static
+  static_dir: static
+
+- url: /blog
+  script: blog.app
+
+libraries:
+ - name: jinja2
+   version: latest
