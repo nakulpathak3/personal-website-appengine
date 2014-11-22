@@ -4,6 +4,9 @@
         margin: 0 auto;
         padding: 10px;
     }
+    input, textarea {
+        max-width:100%
+    }
 
     .error{
         color: red;

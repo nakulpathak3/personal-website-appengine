@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>Nakul's Blog</title>
-        <link rel="stylesheet" href="../stylesheets/style.css" type="text/css">
-    </head>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/stylesheets/blog-style.css" />
 
-    <body>
-    <h1>
-        <a class="no-color" href="/blog">Nakul's Blog!</a>
-    </h1>
+  <title>CS 253 Blog</title>
+</head>
 
-        {% block content %}
-        {% endblock %}
+<body>
+  <a href="/blog" class="main-title">
+    CS 253 Blog
+  </a>
 
-    </body>
+  <div id="content">
+  {% block content %}
+  {% endblock %}
+  </div>
+</body>
+
 </html>
+
