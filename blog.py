@@ -66,13 +66,27 @@ class FormPage(Handler):
             self.render(subject, blog, error)
 
 class Permalink(MainPage):
-        def get(self, blog_id):
-            s = Blog.get_by_id(int(blog_id))
-            self.render("front.html", blogs=[s])
+    def get(self, blog_id):
+        s = Blog.get_by_id(int(blog_id))
+        self.render("front.html", blogs=[s])
+
+class SignUp(Handler):
+    def get(self):
+        self.render("signup.html")
+
+    def post(self):
+        username = self.request.get("username")
+        password = self.request.get("password")
+        ver_password = self.request.get("ver_password")
+        email = self.request.get("email")
+
+        if username and password and ver_password and (password == ver_password):
+            self.redirect("/welcome")
 
 app = webapp2.WSGIApplication([ ('/', IndexPage),
                                 ('/blog', MainPage),
                                 ('/newpost', FormPage),
-                                ('/blog/(\d+)', Permalink)
+                                ('/blog/(\d+)', Permalink),
+                                ('/signup', SignUp)
                                ],
                                 debug = True)
