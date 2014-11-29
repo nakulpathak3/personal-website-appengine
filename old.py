@@ -5,14 +5,11 @@ import jinja2
 import time
 
 from string import letters
-
 from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                                                 autoescape = True)
-
-
 
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
@@ -30,10 +27,6 @@ class Blog(db.Model):
     blog = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
     last_modified = db.DateTimeProperty(auto_now = True)
-
-class IndexPage(Handler):
-    def get(self):
-        self.render("index.html")
 
 class MainPage(Handler):
 
@@ -66,13 +59,17 @@ class FormPage(Handler):
             self.render(subject, blog, error)
 
 class Permalink(MainPage):
-        def get(self, blog_id):
-            s = Blog.get_by_id(int(blog_id))
-            self.render("front.html", blogs=[s])
+    def get(self, blog_id):
+        s = Blog.get_by_id(int(blog_id))
+        self.render("front.html", blogs=[s])
 
-app = webapp2.WSGIApplication([ ('/', IndexPage),
-                                ('/blog', MainPage),
+class SiteMap(Handler):
+    def get(self):
+        self.write("sitemap.xml")
+
+app = webapp2.WSGIApplication([('/blog', MainPage),
                                 ('/newpost', FormPage),
-                                ('/blog/(\d+)', Permalink)
+                                ('/blog/(\d+)', Permalink),
+                                ('/sitemap.xml', SiteMap)
                                ],
                                 debug = True)
