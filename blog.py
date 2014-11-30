@@ -2,48 +2,11 @@ import os
 import re
 import webapp2
 import jinja2
-import time
-import hashlib
-import hmac
-
-from string import letters
-from secret import *
-
-from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                                                 autoescape = True)
-###################HASHING FUNCTIONS##################################
-def hash_str(s):
-    return hmac.new(secret, s).hexdigest()
-
-def make_secure_val(s):
-    return "%s|%s" % (s, hash_str(s))
-
-def check_secure_val(h):
-    val = h.split('|')[0]
-    if h == make_secure_val(val):
-        return val
-
-######################Form Functions######################################
-
-
 class Handler(webapp2.RequestHandler):
-
-    def verify_signup(self, username, password, ver_password):
-        if ((password == ver_password) and (username)):
-            self.write("Thanks!") #Instead do welcome page
-        elif not username :
-            error = "Please enter a valid username"
-            self.render("signup.html", error = error)
-        elif not password :
-            error = "Please enter a valid password"
-            self.render("signup.html", error = error)
-        elif (password != ver_password) :
-            error = "Passwords did not match!"
-            self.render("signup.html", error = error)
-
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
 
@@ -54,14 +17,6 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
-    def set_cookie(self, name, val):
-        cookie_val = make_secure_val(val)
-        self.response.headers.add_header('Set-Cookie', '%s=%s' % (name, cookie_val))
-
-    def read_cookie(self, name, val):
-        cookie_val = self.request.cookies.get(name)
-        if cookie_val and check_secure_val(cookie_val):
-            return cookie_val
 
 class Blog(db.Model):
     #user = db.StringProperty(required = True)
@@ -105,46 +60,14 @@ class FormPage(Handler):
             error = "we need both a subject and a body"
             self.render(subject, blog, error)
 
-
-#Signup to work on. For hashing and validity checks
-#Welcome page of user using cookie
-#Add projects to website and uploading!
-#Changes to CSS of template to make it not seem like a complete copy paste.
-
 class Permalink(MainPage):
     def get(self, blog_id):
         s = Blog.get_by_id(int(blog_id))
         self.render("front.html", blogs=[s])
 
-
-class SignUp(Handler):
-    def get(self):
-        visits = 0
-        self.write("You've been here %s times!\n" % visits)
-        self.render("signup.html")
-
-    def post(self):
-        username = self.request.get("username")
-        password = self.request.get("password")
-        ver_password = self.request.get("ver_password")
-        email = self.request.get("email")
-        self.verify_signup(username, password, ver_password)
-
-class LogIn(Handler):
-    def get(self):
-        self.render("login.html")
-
-    def post(self):
-        username = self.request.get("username")
-        password = self.request.get("password")
-        if check_secure_val(make_secure_val(password)):
-            self.redirect('/welcome')
-
 app = webapp2.WSGIApplication([ ('/', IndexPage),
                                 ('/blog', MainPage),
                                 ('/newpost', FormPage),
                                 ('/blog/(\d+)', Permalink),
-                                ('/signup', SignUp),
-                                ('/login', LogIn)
                                ],
                                 debug = True)
