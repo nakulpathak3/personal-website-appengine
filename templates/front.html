@@ -3,12 +3,14 @@
 {% block content %}
 
     {% for blog in blogs %}
+    <br>
         <div class="blog">
-            <div class="blog-subject">{{blog.subject}}</div>
+            <b><div class="blog-subject">{{blog.subject}}</div> </b><br>
             <pre class="blog-body">{{blog.blog}}</pre>
         </div>
 
         <hr>
     {% endfor %}
+    <a href="newpost"><input type="button" value="Write a message!"></a>
 
 {% endblock %}

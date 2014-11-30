@@ -2,16 +2,16 @@
 *{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	  box-sizing: border-box;      
+	  box-sizing: border-box;
 }
 
 body#index{
-	background: url('images/backgrounds/vintage-cars_00250319.jpg');
+	background: url('/static/backgrounds/vintage-cars_00250319.jpg');
 	background-size: cover;
 }
 
 #details{
-	background: url('images/backgrounds/Mexicana.jpg');
+	background: url('/static/backgrounds/mexicana.jpg');
 }
 
 h1 {
@@ -20,7 +20,7 @@ h1 {
 	text-align: center;
 	font-family: 'Josefin Slab', serif;
 	font-size: 14vh;
-} 
+}
 
 .list{
 	background: #62ddef;
@@ -30,7 +30,7 @@ h1 {
 	position: relative;
 	left: 7%;
 	top: 45px;
-	margin-bottom: 2%;
+	margin-bottom: 1.4%;
 	font-size: 400%;
 	font-family: 'Oswald', sans-serif;
 	text-align: center;
@@ -45,7 +45,7 @@ a{
 
 .bar{
 	width: 2.2%;
-	height: 32.8%;	
+	height: 32.8%;
 	position: absolute;
 	right: 0px;
 	top: -20px;
@@ -88,7 +88,7 @@ img{
 #about{
 	font-size: 1.85vw;
 	line-height: 120%;
-	position: absolute; 
+	position: absolute;
 	color: white;
 	background: rgba(122,128,115,0.7);
 	top: 22%;
@@ -149,13 +149,13 @@ img{
 }
 
 
-#accordion .ui-accordion-content ul #underline{  
-    width: 100%;    
+#accordion .ui-accordion-content ul #underline{
+    width: 100%;
     border-bottom: 2px solid #00c09e;
-}  
+}
 
 #accordion .ui-accordion-content p{
-	color: white;  
+	color: white;
 }
 
 .skills{
@@ -191,13 +191,13 @@ img{
 #stwo{	top: 250%; background:  rgba(0,192,158,0.85); color: white;}
 #sthree{ top: 280%; background: rgba(255,255,255,0.85); color: black;}
 #sfour{	top: 310%; background: rgba(16,5,119,0.85); color: white;}
-	
+
 .contentone,.contenttwo,.contentthree,.contentfour{
 	position: absolute;
 	left: 60%;
 	height: 30%;
 	width: 40%;
-	font: 150% 'Arvo', serif;	
+	font: 150% 'Arvo', serif;
 }
 
 .contentone{
@@ -276,7 +276,7 @@ img{
 	height: 45%;
 	margin-top: -45%;
 	margin-left: 80%;
-	background: rgba(100,100,100,0.9); 
+	background: rgba(100,100,100,0.9);
 }
 
 @media(max-width: 2000px) and (min-width: 1650px) {

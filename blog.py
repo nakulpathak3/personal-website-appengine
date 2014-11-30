@@ -2,10 +2,15 @@ import os
 import re
 import webapp2
 import jinja2
+import time
+
+from string import letters
+from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                                                 autoescape = True)
+
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
@@ -17,18 +22,11 @@ class Handler(webapp2.RequestHandler):
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
 
-
 class Blog(db.Model):
-    #user = db.StringProperty(required = True)
-    #password = db.StringProperty(required = True)
     subject = db.StringProperty(required = True)
     blog = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
     last_modified = db.DateTimeProperty(auto_now = True)
-
-class IndexPage(Handler):
-    def get(self):
-        self.render("index.html")
 
 class MainPage(Handler):
 
@@ -61,13 +59,12 @@ class FormPage(Handler):
             self.render(subject, blog, error)
 
 class Permalink(MainPage):
-    def get(self, blog_id):
-        s = Blog.get_by_id(int(blog_id))
-        self.render("front.html", blogs=[s])
+        def get(self, blog_id):
+            s = Blog.get_by_id(int(blog_id))
+            self.render("front.html", blogs=[s])
 
-app = webapp2.WSGIApplication([ ('/', IndexPage),
-                                ('/blog', MainPage),
+app = webapp2.WSGIApplication([('/blog', MainPage),
                                 ('/newpost', FormPage),
-                                ('/blog/(\d+)', Permalink),
+                                ('/blog/(\d+)', Permalink)
                                ],
                                 debug = True)
