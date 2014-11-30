@@ -26,7 +26,24 @@ def check_secure_val(h):
     if h == make_secure_val(val):
         return val
 
+######################Form Functions######################################
+
+
 class Handler(webapp2.RequestHandler):
+
+    def verify_signup(self, username, password, ver_password):
+        if ((password == ver_password) and (username)):
+            self.write("Thanks!") #Instead do welcome page
+        elif not username :
+            error = "Please enter a valid username"
+            self.render("signup.html", error = error)
+        elif not password :
+            error = "Please enter a valid password"
+            self.render("signup.html", error = error)
+        elif (password != ver_password) :
+            error = "Passwords did not match!"
+            self.render("signup.html", error = error)
+
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
 
@@ -103,14 +120,6 @@ class Permalink(MainPage):
 class SignUp(Handler):
     def get(self):
         visits = 0
-        visit_cookie_str  = self.request.cookies.get('visits')
-        if visit_cookie_str:
-            cookie_val = check_secure_val(visit_cookie_str)
-            if cookie_val:
-                visits = int(cookie_val)
-        visits += 1
-        new_cookie_val = make_secure_val(str(visits))
-        self.response.headers.add_header('Set-Cookie', 'visits=%s' % new_cookie_val)
         self.write("You've been here %s times!\n" % visits)
         self.render("signup.html")
 
@@ -119,9 +128,7 @@ class SignUp(Handler):
         password = self.request.get("password")
         ver_password = self.request.get("ver_password")
         email = self.request.get("email")
-
-        if username and password and ver_password and (password == ver_password):
-            self.redirect("/welcome")
+        self.verify_signup(username, password, ver_password)
 
 class LogIn(Handler):
     def get(self):

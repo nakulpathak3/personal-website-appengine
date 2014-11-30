@@ -4,17 +4,22 @@
 
     <form method="POST">
         <label>
-            Username<input type="text" name="username"> <br>
+            Username<input type="text" name="username">
+            <br>
         </label>
         <label>
-            Password<input type="text" name="password"> <br>
+            Password<input type="text" name="password">
+            <br>
         </label>
         <label>
-            Verify Password<input type="text" name="ver-password"> <br>
+            Verify Password<input type="text" name="ver_password">
+            <br>
         </label>
         <label>
             Email(optional bro)<input type="text" name="email"> <br>
         </label>
+        <div style="color: red" class="error">%</div>
+        <input type="submit">
     </form>
 
 {% endblock %}
