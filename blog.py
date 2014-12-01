@@ -7,7 +7,6 @@ import hashlib
 import hmac
 
 from string import letters
-from secret import *
 
 from google.appengine.ext import db
 
