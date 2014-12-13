@@ -215,55 +215,6 @@ img{
 	background: rgba(0,192,158,0.85);
 	left: 0%;
 }
-.basic-grey {
-	position: absolute;
-	top: 375%;
-    width: 60%;
-    left: 20%;
-    background: #EEE;
-    padding: 2% 5% 5% 5%;
-    font: 150% Georgia, "Times New Roman", Times, serif;
-    color: #333;
-    text-shadow: 1px 1px 1px #FFF;
-    border:1px solid #DADADA;
-}
-
-.basic-grey label {
-    display: block;
-    margin: 2% 2% 4%;
-}
-.basic-grey label>span {
-    float: left;
-    text-align: right;
-    padding-right: 10px;
-    margin-top: 10px;
-    color: #333;
-}
-.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea{
-    border: 1px solid #DADADA;
-    color: black;
-    outline: 0 none;
-    padding: 2% 1% 2% 1%;
-    width: 40%;
-    font: normal 100% Georgia, "Times New Roman", Times, serif;
-}
-
-.basic-grey textarea{
-   width: 75%;
-}
-.basic-grey .button {
-	position: absolute;
-	cursor: pointer; cursor: hand;
-    background: #FF4040;
-    border: none;
-    padding: 2% 6% 2% 6%;
-    color: white;
-    left: 40%;
-    font-size: 120%;
-}
-.basic-grey .button:hover {
-    background: #FF2020;
-}
 
 .contactbar{
 	width: 2.4%;
