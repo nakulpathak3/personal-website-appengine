@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:700);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background: url(../img/seamless_paper_texture.png);
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.navbar-default .navbar-brand {
+    color: #1abc9c;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #1abc9c;
+    background-color: transparent;
+    border-bottom: 2px solid #1abc9c
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #1abc9c;
+}
+
+.namescreen{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.name {
+    text-align: center;
+}
+
+span {
+    display: inline-block;
+}
+
+span:before,
+span:after {
+    border-top: 2.5px solid black;
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 20%;
+    position: absolute;
+    top: 5.7em;
+}
+span:before{
+    left: 22%;
+}
+span:after {
+   left: 60%;
+}
+
+#slab{
+    font-family: 'Josefin Slab', serif;
+}
