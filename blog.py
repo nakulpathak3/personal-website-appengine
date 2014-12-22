@@ -73,6 +73,7 @@ class FormPage(Handler):
 
     def get(self):
         self.render("form.html")
+        self.write("Boo")
 
     def post(self):
         subject = self.request.get("subject")

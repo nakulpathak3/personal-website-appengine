@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:700);
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -29,52 +28,75 @@ body {
     color: #1abc9c;
 }
 
-.namescreen{
-    height: 100%;
+#headerwrap {
+    margin-top: -160px;
+    padding-top: 250px;
+    text-align:center;
+    min-height: 650px;
     width: 100%;
-    background-color: white;
-
+    color:
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.name {
-    text-align: center;
+#headerwrap h1 {
+    color:#ffffff;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    letter-spacing: 4px;
+    font-size: 80px;
+    font-weight: bold;
 }
 
-span {
-    display: inline-block;
+#headerwrap h4 {
+    font-weight: 400;
+    color: #ffffff
 }
 
-span:before,
-span:after {
-    border-top: 2.5px solid black;
-    display: block;
-    height: 1px;
-    content: " ";
-    width: 20%;
-    position: absolute;
-    top: 5.7em;
-}
-span:before{
-    left: 22%;
-}
-span:after {
-   left: 60%;
+.fadeInUp {
+-webkit-animation-name: fadeInUp;
+animation-name: fadeInUp;
 }
 
-#slab{
-    font-family: 'Josefin Slab', serif;
+h1 {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.animated {
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
 }
