@@ -150,10 +150,6 @@ span.oneline{
     width: 60%;
 }
 
-span.oneline:hover{
-    background-color: black;
-}
-
 ul.no-bullets{
     list-style-type: none;
     margin: 0px;
@@ -171,9 +167,10 @@ span.emptystars{
 
                     /* Specifically 3rd Page (Projects) styles */
 
-
-
 div.projectbox{
+    -ms-perspective: 600;
+    -o-perspective: 600;
+    -webkit-perspective: 600;
     perspective: 600;
     position: relative;
     height: 260px;
@@ -187,16 +184,19 @@ div.project{
     width: 100%;
     position: absolute;
 
+    -ms-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
+    -ms-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
 
 div.project:hover{
+    -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     transform: rotateY(180deg);
@@ -208,6 +208,7 @@ img.project-image{
 }
 
 div.side{
+  -ms-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -272,70 +273,6 @@ div#contact{
     height: auto;
 }
 
-span#line4:before,
-span#line4:after {
-    border-top: 3px solid rgb(94,94,94);
-    display: block;
-    height: 1px;
-    content: " ";
-    width: 15%;
-    position: absolute;
-    top: 2.2em;
-}
-span#line4:before{
-    left: 23%;
-}
-span#line4:after {
-   left: 61.2%;
-}
-
-.basic-grey {
-    width: 60%;
-    margin: -10px auto;
-    background: #EEE;
-    padding: 2% 5% 5% 5%;
-    font: 120% Georgia, "Times New Roman", Times, serif;
-    color: #333;
-    text-shadow: 1px 1px 1px #FFF;
-    border:1px solid #DADADA;
-    margin-bottom: 10%;
-}
-
-.basic-grey label {
-    display: block;
-    margin: 2% 2% 4%;
-}
-.basic-grey label>span {
-    float: left;
-    text-align: right;
-    padding-right: 10px;
-    margin-top: 10px;
-    color: #333;
-}
-.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea{
-    border: 1px solid #DADADA;
-    color: black;
-    outline: 0 none;
-    padding: 2% 1% 2% 1%;
-    width: 40%;
-    font: normal 100% Georgia, "Times New Roman", Times, serif;
-}
-
-.basic-grey textarea{
-   width: 75%;
-}
-.basic-grey .button {
-    cursor: pointer; cursor: hand;
-    background: #FF4040;
-    border: none;
-    padding: 2% 6% 2% 6%;
-    color: white;
-    margin: 0 35%;
-    font-size: 120%;
-}
-.basic-grey .button:hover {
-    background: #FF2020;
-}
 #social {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -361,25 +298,49 @@ span#line4:after {
     color: #f2f2f2;
     margin-left: 10px;
 }
+
 /*
-div.projectbox {
-    width: 730px;
-    height: 133px;
-    line-height: 0px;
-    color: transparent; font-size: 50px;
-    font-weight: 300; text-transform: uppercase;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
+Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2014 Daniel Eden
+*/
+.animated {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
-div.projectbox:hover {
-    line-height: 133px;
-    color: #575858;
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 
-#ex3 img{
-    float: left;
-    margin: 0 15px;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+          animation-name: fadeInUp;
+}
