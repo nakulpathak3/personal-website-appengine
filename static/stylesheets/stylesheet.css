@@ -4,9 +4,13 @@ body {
     font-family: Georgia, sans-serif;
     font-size: 18px;
     color: rgb(94,94,94);
-    background: url(../img/bridgecopy.jpg) no-repeat center center fixed;
+    background: url(../img/bridge.jpg) no-repeat center center fixed;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
+     -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .navbar-default .navbar-brand {
@@ -53,6 +57,10 @@ body {
     font-weight: 400;
 }
 
+a.mail-link{
+    text-decoration: none;
+}
+
                             /* Styles for 2nd page and down */
 
 hr.style-two, hr.vertical-line {
@@ -68,24 +76,6 @@ hr.vertical-line {
     margin-right: 31%;
     width: 45%;
     -webkit-transform:rotate(90deg);
-}
-
-hr.style-seven {
-    height: 30px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
-}
-hr.style-seven:before { /* Not really supposed to work, but does */
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: black;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
 }
 
 /* General for all subheadings */
@@ -186,8 +176,10 @@ span.emptystars{
 div.projectbox{
     perspective: 600;
     position: relative;
-    height: 400px;
-    width: 450px;
+    height: 260px;
+    width: 420px;
+    margin-left: 8.5%;
+    margin-top: 2%;
 }
 /* Child of projectbox */
 div.project{
@@ -226,49 +218,7 @@ div.side{
 
 div.back{
     transform: rotateY(180deg);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-div#project2{
-    background: url(../img/website.png);
-    background-size: 100% 100%;
+    border: 2px solid #aaa;
 }
 
 a.github{

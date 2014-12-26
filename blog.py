@@ -7,8 +7,10 @@ import hashlib
 import hmac
 
 from string import letters
+from cStringIO import StringIO
 
 from google.appengine.ext import db
+from google.appengine.api import mail
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
@@ -56,6 +58,16 @@ class Blog(db.Model):
 class IndexPage(Handler):
     def get(self):
         self.render("index.html")
+
+    def post(self):
+        name = self.request.get("name")
+        email = self.request.get("email")
+        message = self.request.get("message")
+        mail.send_mail(sender = "Website Form <%s>" % email,
+                        to = "Nakul Pathak <nakulpathak3@hotmail.com>",
+                        subject = "Message on website from %s" % name,
+                        body = "Here's the message: %s" % message)
+        self.render("thanks.html")
 
 class MainPage(Handler):
 
