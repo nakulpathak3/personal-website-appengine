@@ -34,6 +34,9 @@ body {
 .navbar-default .navbar-nav > li > a {
     color: #1abc9c;
 }
+.navbar-default .navbar-nav > li > a:hover{
+    color: #999;
+}
 
                         /* First Page headings and stuff */
 #headerwrap {
@@ -61,6 +64,10 @@ a.mail-link{
     text-decoration: none;
 }
 
+a.mail-link:hover{
+    color: #1abc9c;
+}
+
                             /* Styles for 2nd page and down */
 
 hr.style-two, hr.vertical-line {
@@ -76,6 +83,10 @@ hr.vertical-line {
     margin-right: 31%;
     width: 45%;
     -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -o-transform:rotate(90deg);
+    transform:rotate(90deg);
 }
 
 /* General for all subheadings */
@@ -105,13 +116,18 @@ span#line1:after {
    left: 57%;
 }
 
+div.about-text{
+    margin: 0 auto;
+    float: none;
+}
+
 div#about{
     top:100%;
 }
 img#profile{
     height: 38%;
     width: auto;
-    margin: 0 auto;
+    margin: -3% auto 1% auto;
     border-radius: 100%;
     border: 2px solid #1abc9c;
     display: block;
@@ -140,7 +156,12 @@ div#skills{
     top: 200%;
 }
 
+div.move-up{
+    margin-top: -3%;
+}
+
 h1#slab{
+    visibility: visible;
     text-align: center;
     letter-spacing: 0.2em;
 }
@@ -168,9 +189,10 @@ span.emptystars{
                     /* Specifically 3rd Page (Projects) styles */
 
 div.projectbox{
-    -ms-perspective: 600;
+    -moz-perspective: 600;
     -o-perspective: 600;
     -webkit-perspective: 600;
+    -ms-perspective: 600;
     perspective: 600;
     position: relative;
     height: 260px;
@@ -183,22 +205,24 @@ div.project{
     height: 100%;
     width: 100%;
     position: absolute;
-
-    -ms-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
-    -ms-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
 
 div.project:hover{
-    -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -208,9 +232,10 @@ img.project-image{
 }
 
 div.side{
-  -ms-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   -o-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
   backface-visibility: hidden;
   height: 100%;
   position: absolute;
@@ -218,8 +243,14 @@ div.side{
 }
 
 div.back{
+
     color: #1abc9c;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
+    background: #F3EFE0;
     border: 2px solid #aaa;
 }
 
@@ -231,6 +262,7 @@ a:hover{
     text-decoration: none;
 }
 a.github{
+    margin-top: -4%;
     display: inline-block;
     width: 30px;
 }
@@ -297,6 +329,35 @@ div#contact{
 #footerwrap p {
     color: #f2f2f2;
     margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
+    .hide-1200{
+        visibility: hidden;
+    }
+
+    .projectbox{
+        left: auto;
+    }
+
+    div#contact{
+        top: 600%;
+    }
+}
+
+@media (min-height: 710px){
+    div#contact{
+        top: 445%;
+    }
+}
+
+@media (max-width: 600px){
+    img#profile{
+        margin: -12% auto 1% auto;
+    }
+    .about-text{
+        font-size: 90%;
+    }
 }
 
 /*
