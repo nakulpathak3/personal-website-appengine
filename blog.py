@@ -133,11 +133,16 @@ class LogIn(Handler):
         if check_secure_val(make_secure_val(password)):
             self.redirect('/welcome')
 
+class Resume(Handler):
+  def get(self):
+      self.redirect("static/nakulpathak.pdf")
+
 app = webapp2.WSGIApplication([ ('/', IndexPage),
                                 ('/blog', MainPage),
                                 ('/newpost', FormPage),
                                 ('/blog/(\d+)', Permalink),
                                 ('/signup', SignUp),
-                                ('/login', LogIn)
+                                ('/login', LogIn),
+                                ('/resume', Resume)
                                ],
                                 debug = True)
