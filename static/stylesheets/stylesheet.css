@@ -61,7 +61,8 @@ body {
 }
 
 a.mail-link{
-    text-decoration: none;
+  text-decoration: underline;
+  color: #1abc9c;
 }
 
 a.mail-link:hover{
@@ -117,7 +118,7 @@ span#line1:after {
 }
 
 div.about-text{
-    font-size: 90%;
+    font-size: 92%;
     margin: 0 auto;
     float: none;
 }
@@ -306,7 +307,7 @@ span#line3:after {
 
                     /* ////////////////////////Contact Form /////////////////////// */
 div#contact{
-    top: 600%;
+    top: 570%;
     background-color: white;
     height: auto;
 }
