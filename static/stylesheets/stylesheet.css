@@ -61,8 +61,7 @@ body {
 }
 
 a.mail-link{
-  text-decoration: underline;
-  color: #1abc9c;
+  text-decoration: none;
 }
 
 a.mail-link:hover{
