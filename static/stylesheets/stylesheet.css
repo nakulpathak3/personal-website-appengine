@@ -351,16 +351,26 @@ div#contact{
     .projectbox{
         left: auto;
     }
+}
 
+
+
+@media (min-height: 690px){
     div#contact{
-        top: 600%;
+        top: 564%;
     }
 }
 
-@media (min-height: 710px){
+@media (min-height: 770px){
     div#contact{
-        top: 445%;
+        top: 540%;
     }
+}
+
+@media (max-width: 1000px) {
+  div#contact{
+    top: 1200%;
+  }
 }
 
 @media (max-width: 600px){
@@ -370,6 +380,9 @@ div#contact{
     .about-text{
         font-size: 85%;
     }
+    div#contact{
+    top: 1070%;
+  }
 }
 
 /*
