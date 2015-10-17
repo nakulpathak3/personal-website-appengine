@@ -9,4 +9,4 @@ It uses Google App Engine (Python) as the backend. The front end is simple HTML,
 
 ## Contributing
 
-I'm always welcome to changes. So, if you notice any problems, please feel free to open an issue and I'll look into it. Also, if you have ideas on how I can make the website better, feel free to make a pull request!
+I'm always welcome to changes. So if you notice any problems, please feel free to open an issue and I'll look into it. Also, if you have any ideas on how I can make the website better, please make a pull request!
