@@ -1,7 +1,14 @@
 /*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
 
+@font-face {
+  font-family: 'DIN';
+  src: url('../DIN Light.ttf');
+  font-family: 'Novecento';
+  src: url('../NOVECENTOWIDE-BOLD.otf');
+}
+
 body {
-    font-family: Georgia, sans-serif;
+    font-family: 'DIN', sans-serif;
     font-size: 18px;
     color: rgb(94,94,94);
     background: url(../img/bridge.jpg) no-repeat center center fixed;
@@ -11,6 +18,10 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.novofont {
+  font-family: 'Novecento', sans-serif;
 }
 
 .navbar-default .navbar-brand {
@@ -39,6 +50,11 @@ body {
 }
 
                         /* First Page headings and stuff */
+
+.text-center {
+  font-family: Georgia, sans-serif;
+}
+
 #headerwrap {
     margin-top: -160px;
     padding-top: 250px;
@@ -95,6 +111,10 @@ div.subheadings{
     height: 100%;
     background: #F3EFE0;
     position: absolute;
+}
+
+div#slab {
+  font-family: Georgia, sans-serif;
 }
 
                         /* Specifically 2nd Page (About) styles */
@@ -341,6 +361,10 @@ div#contact{
 
 .project-name {
   color: #1abc9c;
+}
+
+.hide-1200 {
+  font-family: Georgia, sans-serif;
 }
 
 @media (max-width: 1200px) {
