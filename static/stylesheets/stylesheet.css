@@ -1,14 +1,7 @@
 /*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
 
-@font-face {
-  font-family: 'DIN';
-  src: url('../DIN Light.ttf');
-  font-family: 'Novecento';
-  src: url('../NOVECENTOWIDE-BOLD.otf');
-}
-
 body {
-    font-family: 'DIN', sans-serif;
+    font-family: Georgia, sans-serif;
     font-size: 18px;
     color: rgb(94,94,94);
     background: url(../img/bridge.jpg) no-repeat center center fixed;
@@ -18,10 +11,6 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-.novofont {
-  font-family: 'Novecento', sans-serif;
 }
 
 .navbar-default .navbar-brand {
